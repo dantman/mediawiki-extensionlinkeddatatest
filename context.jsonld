@@ -1,0 +1,37 @@
+{
+	"@context": {
+		"dc": "http://purl.org/dc/terms/",
+		"schema": "http://schema.org/",
+		"mwe": "http://mediawiki.org/rdf/extensions/",
+		"ext": "https://www.mediawiki.org/wiki/Special:MediaWikiExtension/",
+		"License": "https://www.mediawiki.org/wiki/License:",
+		"User": "https://www.mediawiki.org/wiki/User:",
+		"name": {
+			"@id": "mwe:name",
+			"@language": "en"
+		},
+		"title": {
+			"@id": "dc:title",
+			"@container": "@language"
+		},
+		"url": {
+			"@id": "schema:url",
+			"@type": "@id"
+		},
+		"description": {
+			"@id": "dc:description",
+			"@container": "@language"
+		},
+		"author": {
+			"@id": "schema:author",
+			"@type": "@id"
+		},
+		"license": {
+			"@id": "dc:license",
+			"@type": "@id"
+		},
+		"version": {
+			"@id": "mwe:versionNumber"
+		}
+	}
+}

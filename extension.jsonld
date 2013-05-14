@@ -1,0 +1,33 @@
+{
+	"@context": "https://www.mediawiki.org/rdf/extensions/extension.jsonld",
+	"@type": "mwe:Extension",
+	"@id": "ext:ParserFunctions",
+	"name": "ParserFunctions",
+	"title": {
+		"en": "Parser Functions"
+	},
+	"url": "https://www.mediawiki.org/wiki/Extension:ParserFunctions",
+	"description": {
+		"en": "Enhance parser with logical functions"
+	},
+	"author": [
+		{
+			"@id": "User:Tim_Starling",
+			"schema:name": "Tim Starling"
+		},
+		{
+			"@id": "https://en.wikipedia.org/wiki/User:Dragons_flight",
+			"schema:name": "Robert Rohde"
+		},
+		{
+			"@id": "User:Algorithm",
+			"schema:name": "Ross McClure"
+		},
+		{
+			"@id": "User:Jsimlo",
+			"schema:name": "Juraj Simlovic"
+		}
+	],
+	"license": ["License:GPLv2+", "License:AnyOSI"],	
+	"version": "1.5.1"
+}
