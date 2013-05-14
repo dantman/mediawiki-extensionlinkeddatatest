@@ -28,6 +28,6 @@
 			"schema:name": "Juraj Simlovic"
 		}
 	],
-	"license": ["License:GPLv2+", "License:AnyOSI"],	
+	"license": ["License:GPLv2+", "License:AnyOSI"],
 	"version": "1.5.1"
 }
