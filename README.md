@@ -33,3 +33,23 @@ There are some interesting notes about the `extension.jsonld` file:
     * Instead of verbosely defining your `spdx:DisjunctiveLicenseSet` inside your extension definition file you could instead create a License: page on MediaWiki.org and point to that in your extension definition. This is actually how that `"License:AnyOSI"` used inside the example definition would ideally work. We would create a `[[License:AnyOSI]]` page on MediaWiki.org and mark it up with RDFa defining a `spdx:DisjunctiveLicenseSet` containing every OSI approved license as members pointing to the spdx.org licenses.
     * Instead of linking directly to an external site's license pages you could create a License page on MediaWiki.org for any license you use (even things like `License:GPLv2+`, `License:MIT`, etc...). On that page you would shortly describe that license and use a `dc:isFormatOf` to point to a more standard location defining the license in full such as the spdx licenses.
     * If we embed the licensedb.org graphs inside of our system you could also use real license urls for licenses such as `http://gnu.org/licenses/gpl-2.0.html` and `http://opensource.org/licenses/MIT` which licensedb.org has created graphs describing. These graphs even declare `spdx:licenseId` properties that can be used to loosely link these license URLs to the spdx licenses (Be warned though that using these urls for things like the GPL leaves us with no way to differentiate between things like "GPL version 2 only" and "GPL version 2 or any later version", something that the spdx license resources do allow).
+
+## Extension state files
+To allow the extension update system to understand the information about the current version of the extension it needs to do updates, archive downloads created by this system will include an extension state file containing information about the state of the extension when the archive was generated and added to the system. This file will typically be named `extensionstate.rdf`. However clients will not hardcode the filename directly and will accept any file in the extension root that matches the regexp `/^extensionstate\.[a-z][a-z0-9]*$/` (only one will be permitted to be placed in the extension). This is for future compatibility. Right now the preferred serialization for the extensionstate file is RDF/XML. But making the filename a pattern like this will allow us to change the format in the future if we decide we want to serialize it in turtle, JSON-LD, or some other format.
+
+  * The file must contain a single anonymous `mwe:ExtensionState` resource (multiple are not permitted, the resource is found by fetching the only `? rdf:type mwe:ExtensionState` in the file).
+  * This resource will include a number of properties:
+    * A `dc:isVersionOf` pointing to the update resource IRI (the same one used as the `"@id"` in the JSON-LD `extension.jsonld` file). For security purposes this MUST be a https IRI.
+    * A `mwe:name` with the extension name to double check the resource in the graph at the absolute IRI pointed to by the `dc:isVersionOf` is the correct extension.
+    * A `mwe:gitSha1` with the sha1 of the git commit the archive was built from. This is used as a unique identifier that will work even with alpha versions. In the future we may come up with a different identifier that'll work for all VCSs and double up that common one with properties for each individual system like the `mwe:gitSha1`.
+    * A `mwe:versionNumber` with the version number used if this is a normal release.
+    * A `dc:identifier` with the version number used if this is a normal release or the literal string `"alpha"` for an automated alpha build.
+
+The following files in this repo are examples of this system:
+
+  * There are three `extensionstate-*.rdf` files depicting example extension state files that relate to the versions described by the `test.html`.
+    * `extensionstate-outdated.rdf`: An example of an outdated ParserFunctions 1.4.1.
+    * `extensionstate-updated.rdf`: An example of an up to date ParserFunctions 1.5.1.
+    * `extensionstate-oldalpha.rdf`: An example of an alpha of ParserFunctions with an old git sha1.
+  * `upgrade.php`: This script runs an example upgrade process (no actual downloading just the RDF graph stuff). It accepts one of the example extensionstate files then runs the process of checking the extension information page for updates (fetching the real graph from `test.html` instead of trying to fetch a nonexistent page).
+  * `genstate.php`: This script simply generates the three extensionstate example files.

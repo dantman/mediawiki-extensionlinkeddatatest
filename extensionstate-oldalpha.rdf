@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:mwe="http://mediawiki.org/rdf/extensions/"
+         xmlns:dc="http://purl.org/dc/terms/">
+
+  <mwe:ExtensionState rdf:nodeID="self">
+    <dc:isVersionOf rdf:resource="https://www.mediawiki.org/wiki/Special:MediaWikiExtension/ParserFunctions"/>
+    <mwe:name>ParserFunctions</mwe:name>
+    <mwe:gitSha1 rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">4367239A72B49A563C0961F09DCBBEDF43DB39EA</mwe:gitSha1>
+    <dc:identifier>alpha</dc:identifier>
+  </mwe:ExtensionState>
+
+</rdf:RDF>
