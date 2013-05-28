@@ -2,7 +2,7 @@
 	"@context": {
 		"dc": "http://purl.org/dc/terms/",
 		"schema": "http://schema.org/",
-		"mwe": "http://mediawiki.org/rdf/extensions/",
+		"mwe": "http://mediawiki.org/ns/extension/",
 		"ext": "https://www.mediawiki.org/wiki/Special:MediaWikiExtension/",
 		"License": "https://www.mediawiki.org/wiki/License:",
 		"User": "https://www.mediawiki.org/wiki/User:",

@@ -3,7 +3,7 @@ require 'vendor/autoload.php';
 use \ML\IRI\IRI;
 EasyRdf_Namespace::set( 'xsd', 'http://www.w3.org/2001/XMLSchema#' );
 EasyRdf_Namespace::set( 'dc', 'http://purl.org/dc/terms/' );
-EasyRdf_Namespace::set( 'mwe', 'http://mediawiki.org/rdf/extensions/' );
+EasyRdf_Namespace::set( 'mwe', 'http://mediawiki.org/ns/extension/' );
 
 if ( count( $argv ) >= 2 ) {
 	$stateFile = $argv[1];

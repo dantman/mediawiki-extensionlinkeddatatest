@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 use ML\JsonLD as LD;
 
-# In the real world https://www.mediawiki.org/rdf/extensions/extension.jsonld will
+# In the real world https://mediawiki.org/ns/extension/extension.jsonld will
 # be a real .jsonld document. However right now it's not and hence to parse this
 # right we need to copy our extension metadata file to a new location and modify
 # it to point the @context to a local file for now.

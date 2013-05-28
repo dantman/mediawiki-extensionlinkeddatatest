@@ -1,5 +1,5 @@
 {
-	"@context": "https://www.mediawiki.org/rdf/extensions/extension.jsonld",
+	"@context": "https://mediawiki.org/ns/extension/extension.jsonld",
 	"@type": "mwe:Extension",
 	"@id": "ext:ParserFunctions",
 	"name": "ParserFunctions",

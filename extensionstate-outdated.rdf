@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:mwe="http://mediawiki.org/rdf/extensions/"
+         xmlns:mwe="http://mediawiki.org/ns/extension/"
          xmlns:dc="http://purl.org/dc/terms/">
 
   <mwe:ExtensionState rdf:nodeID="self">
